@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="appAlumnos">
+	<head>
+		<title>Vist Alumnos</title>
+		<link rel="stylesheet" type="text/css" href="css/alumnos.css">
+	</head>
+	<body ng-controller="controllerAlumnos">
+		<h1>Cuaderno Alumnos</h1>
+		<div class="contenedor">
+			<div class="item-alumno" ng-repeat="alumno in alumnos | orderBy:'nombre'">
+				<div class="nombre">{{alumno.nombre}} - {{alumno.telefono}}</div>
+				<span class="curso">{{alumno.curso}}</span>
+			</div>
+		</div>
+		<br/>
+		<center><button ng-click="MostrarFormulario()" ng-hide="formaVisibilidad">Agregar alumno</button></center>
+		<div ng-show="formaVisibilidad" class="contenedor">
+			<h2>Agregar nuevo alumno</h2>
+			Nombre: <input type="text" ng-model="nuevoAlumno.nombre"> 
+			<!-- con ng-model hacemos referencia a queel objeto a utilizar sera nuevoAlumno, propiedad nombre -->
+			Telefono: <input type="text" ng-model="nuevoAlumno.telefono">
+			Curso: <input type="text" ng-model="nuevoAlumno.curso">
+			<button ng-click="Guardar()">Guardar</button>  
+		</div>
+
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="modelos/alumnos.js"></script>
+	</body>
+</html>

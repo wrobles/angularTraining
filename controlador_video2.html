@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app="alumnoApp">
+<head>
+	<meta charset="utf-8"/>
+	<title> Modelo en scope (desarrollo deuncontrolador) </title>
+	
+
+</head>
+<body ng-controller="AlumnoController">
+	{{alumno.nombre}} estudia {{alumno.curso}}
+
+	<!-- ng-controller = directiva de angular.js para adjuntar una clase de controlador a una vista-->
+
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<!-- aquí definiremos el controlador -->
+	<script type="text/javascript">
+		// $scope = 'ambito' o 'contexto', automaticamente se crea un scope porcada controlador que tiene tu aplicacion, puede haber scopes anidados, paralelos y hay siempreun scope padre de todala aplicacion. Por medio del scope podemos definir los modelos como propiedades, enseguida veremos como el controlador AlumnoController define al modelo alumno, como una de sus propiedades. Una propiedad del scope del controlador AlumnoController.
+		
+		var myApp = angular.module('alumnoApp', []);
+
+		myApp.controller('AlumnoController', ['$scope', function($scope) {
+    	$scope.alumno ={ nombre:"wendy robles", curso:"Angular 1"}
+}]);
+	</script>
+</body>
+</html>
